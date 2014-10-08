@@ -1,0 +1,44 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: #FFF;
+  font-family: Georgia, serif;
+}
+
+/* Site */
+
+.container {
+  margin: 0 1em;
+}
+
+/* Header */
+
+.header {
+  margin: 5em 0 4em 0;
+}
+
+h1.title {
+  font-weight: normal;
+}
+
+/* Index */
+
+section {
+  margin: 1em 0;
+  padding: 1em 0;
+  clear: both;
+}
+
+section h3 {
+  font-weight: normal;
+  margin: 2em 0 2em;
+  text-align: center;
+}

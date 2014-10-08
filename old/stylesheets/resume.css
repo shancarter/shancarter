@@ -1,0 +1,52 @@
+html {
+  background-color: #FFFFFF;
+}
+
+#wrapper {
+  width: 804px;
+  margin: 0 auto 0px auto;
+  display: block;
+  font-family: Georgia;
+}
+
+#main {
+  margin: 40px 40px;
+}
+
+
+h1 {
+  font-family: "garamond-premier-pro-display-1","garamond-premier-pro-display-2",serif;
+  font-size: 72px;
+  font-weight: normal;
+  margin: 0 0 2px 0;
+  color: #666;
+  letter-spacing: -1px;
+}
+
+h2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  margin: 0 0 3px 0;
+}
+
+h3 {
+  
+}
+
+#experience h3 {
+  font-size: 24px;
+  margin: 18px 0 3px 0;
+}
+#experience h3.first {
+  margin-top: 0;
+}
+
+.section {
+  border-top: solid 1px #DDD;
+  padding: 18px 0 0 0;
+  margin: 0 0 18px 0;
+}
+
+#contact {
+  margin: 0 0 12px 0;
+}

@@ -1,0 +1,22 @@
+html {
+  background-color: #FFFFFF;
+}
+
+#wrapper {
+  width: 724px;
+  margin: 0 auto 0px auto;
+  display: block;
+}
+
+/*UTILS*/
+.clearfix:after {
+  clear:both;
+  content:".";
+  display:block;
+  height:0;
+  visibility:hidden;
+}
+
+.clearfix {
+  display:block;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+    {{! CSS }}
+    <link rel="stylesheet" href="/assets/main.css">
+
+  </head>
+  <body>
+
+    {{! SITE }}
+    <div class="site"><div class="container">
+
+      {{! HEADER }}
+      <div class="header">
+        <h1 class="title"><a href="/">{{ site.name }}</a></h1>
+      </div>
+
+      {{! CONTENT }}
+      <div class="content">
+        {{ content }}
+      </div>
+
+      {{! FOOTER }}
+      <div class="footer">
+      </div>
+
+    </div></div>
+
+  </body>
+</html>
