@@ -4,65 +4,64 @@ title: The Life and Times of The Other Shan Carter
 ---
 
 <style>
-  h1 {
-    text-transform: uppercase;
-    text-align: center;
-    font-family: Georgia;
-  }
+h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-family: Georgia;
+}
 
-  .header {
-    max-width: 800px;
-    margin: 6em auto;
-  }
+.header {
+  max-width: 800px;
+  margin: 6em auto;
+}
 
-  .summary {
-    line-height: 1.5em;
-    max-width: 800px;
-    margin: 4em auto;
-  }
+.summary {
+  line-height: 1.5em;
+  max-width: 800px;
+  margin: 4em auto;
+}
 
-  .portfolio-items {
-    margin: 0;
-    text-align: center;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+.portfolio-items {
+  margin: 0;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
+.portfolio a {
+  font-family: Helvetica, arial;
+  font-size: 11px;
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  text-align: center;
+  margin: 1.5em;
+  line-height: 1.3em;
+  text-decoration: none;
+}
+
+.portfolio a img {
+  width: 100%;
+}
+
+.portfolio-description {
+  position: absolute;
+  top: 150px;
+  left: 15%;
+  width: 70%;
+  margin: 1em auto;
+}
+
+@media (max-width: 400px) {
   .portfolio a {
-    font-family: Helvetica, arial;
-    font-size: 11px;
-    text-transform: uppercase;
-    display: inline-block;
-    position: relative;
-    width: 200px;
-    height: 250px;
-    overflow: hidden;
-    text-align: center;
-    margin: 1.5em;
-    line-height: 1.3em;
-    text-decoration: none;
+    width: 130px;
+    height: 180px;
+    margin: 0.5em;
   }
-
-  .portfolio a img {
-    width: 100%;
-  }
-
-  .portfolio-description {
-    position: absolute;
-    top: 150px;
-    left: 15%;
-    width: 70%;
-    margin: 1em auto;
-  }
-
-  @media (max-width: 400px) {
-    .portfolio a {
-      width: 130px;
-      height: 180px;
-      margin: 0.5em;
-    }
-  }
-
+}
 </style>
 
 <p class="summary">I make interactive graphics for <a class="publication" href="http://nytimes.com">The New York Times</a> and I&rsquo;m the creator of <a href="http://nytimes.github.io/svg-crowbar/">SVG Crowbar</a>, <a href="http://shancarter.github.io/distillery/">Distillery</a> and <a href="http://shancarter.github.io/mr-data-converter/">Mr. Data Converter</a>. I recently taught a <a href="http://shancarter.github.io/ucb-dataviz-fall-2013/">dataviz class</a> at UC Berkeley with <a href="http://kpq.github.io/">Kevin Quealy</a>. <!-- I occasionally give <a href="/talk">talks about my work</a> too. --> You can find me on twitter as <a href="http://twitter.com/shancarter">@shancarter</a>.</p>
@@ -107,7 +106,7 @@ title: The Life and Times of The Other Shan Carter
       <img src="assets/size_280x200/fashion.jpg">
       <div class="portfolio-description">Front Row to Fashion Week</div>
     </a>
-    
+
     <a href="http://www.nytimes.com/interactive/2014/upshot/buy-rent-calculator.html">
       <img src="assets/size_280x200/rent-buy.jpg">
       <div class="portfolio-description">Is It Better to Rent or Buy?</div>
@@ -122,7 +121,7 @@ title: The Life and Times of The Other Shan Carter
       <img src="assets/size_280x200/luge.jpg">
       <div class="portfolio-description">Is That a Luge in Times Square?</div>
     </a>
-    
+
     <a href="http://www.nytimes.com/newsgraphics/2014/senate-model/">
       <img src="assets/size_280x200/senate.jpg">
       <div class="portfolio-description">Who Will Win The Senate?</div>
@@ -176,6 +175,11 @@ title: The Life and Times of The Other Shan Carter
     <a href="http://www.nytimes.com/interactive/2012/10/15/us/politics/swing-history.html">
       <img src="assets/size_280x200/swing_states.jpg" >
       <div class="portfolio-description">How States Have Shifted</div>
+    </a>
+
+    <a href="http://www.nytimes.com/interactive/2012/09/06/us/politics/convention-word-counts.html">
+      <img src="assets/size_280x200/convention.png" >
+      <div class="portfolio-description">The Words Used at the National Conventions</div>
     </a>
 
     <a href="http://www.nytimes.com/interactive/2012/02/13/us/politics/2013-budget-proposal-graphic.html">

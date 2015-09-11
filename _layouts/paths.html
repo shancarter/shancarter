@@ -1,0 +1,182 @@
+Every few years, The New York Times publishes tools to help readers navigate the ins and outs of the complicated U.S. federal elections. ---
+layout: default
+---
+
+<link rel="stylesheet" href="assets/syntax.css">
+
+
+<h2>{{ page.title }}</h2>
+<p class="meta">{{ page.date | date_to_string }}</p>
+
+<div class="post">
+{{ content }}
+</div>
+
+One of our most popular tools during these political seasons is our electoral college calculator — it allows people to explore all the different ways each state could vote,  automatically tallying up the correct electoral votes so you don’t have to do any math.
+Our most recent version of the electoral calculator, published during the Obama Romney campaign, was our most popular to date.
+It enabled a user to interactive explore the 512 most likely paths to the White House for the two candidates during the weeks immediately preceding election day.
+
+This isn’t the first time we’ve built a tool that tackles this problem, however. Over the past dozen years we’ve build several of them. F
+
+rom that persistent iteration, we’ve learned a lot about what makes an effective journalistic tool for the masses, how information visualizations can be used within interactive applications and also a lot about the best ways to approach and develop an idea for the web.
+Let’s rewind a little bit and take a trip through history.
+http://www.nytimes.com/packages/html/politics/2004_ELECTIONGUIDE_GRAPHIC/
+
+Our first interactive calculator was built over a decade ago. The concept was pretty simple — you would click on states and recolor them for either candidate. The electoral totals would automatically update. No math required.
+
+It feels pretty crude by todays standards. It really doesn’t do much other than add up the totals for you, and it was build in Flash, a technology we no longer use, and it won’t work on your phone. But for the time it was pretty amazing. There was nothing else quite like it.
+
+http://elections.nytimes.com/2008/president/whos-ahead/key-states/map.html
+
+It was so successful, in fact, that four years later we built pretty much the same thing.
+It’s was given a facelift and a few helpful new features were added (like the ability to share a map you’ve colored), but ultimately it’s the same idea.
+
+I was pretty proud of this when I built it in 2008, but after using it for several months, I became quite frustrated with it for Three reasons. (And I’m not including the fact that it didn’t work on the newly introduced iPhone)
+
+My first frustration was with the core visualisation: The U.S. Choropleth map.
+
+This data visualization form dates back quite a long time.
+We even found an example of it in use for this very scenario over a hundred years ago.
+
+Shown here is The New York Times front page from Wednesday, November 4, 1896, the day after election day.
+
+The map shows which states were won by William McKinley (Republican, shaded white) and which were won by William Jennings Bryan (Democrat, shaded black).
+
+It’s actually quite remarkable for the time, especially considering it still came out the day after election day, but there are a number of things wrong with this map. Most visibly the lack of a key and the fact that several of other states were shaded incorrectly. But the there is a more fundamental problem which we’ll get to in a little bit…
+
+Here’s another choropleth map from 1932.
+Effectively the same as the one 36 years previous.
+
+And here’s one from a recent election.
+We’ve added color but it’s basically still that same.
+
+So, if we’ve been using this for over a hundred years, what’s so wrong with all these maps?
+
+The biggest problem with this map with any of them is that I have to tell you who won in each case. When building that interactive version in 2008, it felt devastating that you couldn’t infer that most important piece of information from the visualization itself.
+
+Incidentally, this is the results from 2012 presidential election in which Obama (in blue) beat out Romney (in red).
+
+It’s actually worse than not being able to tell… In this case, the amount of red implies that Romney won.
+
+In the previous map, about 36% of the map is shaded blue for Obama.
+But Obama won a whopping 62% of the electoral votes.
+
+Unlike the previous maps, the bar chart on the bottom clearly shows you who won without me having to tell you.
+
+It’s made even worse when you try to compare elections. Here are very different presidential elections. But when you see the maps all together, you can barely tell the difference. Can you tell which one was so close it had to be decided by the Supreme Court? And which ones were blowout wins?
+
+Probably not. Here are some labels to help you out.
+
+Now, this specific problem has a specific solution. The solution is what’s called a Cartogram.
+
+Basically, instead of just drawing the the states normally, you can distort them so they are sized by how many electoral votes each state is allotted.
+
+http://www-personal.umich.edu/~mejn/election/2012/
+
+Here’s another take on the same idea from Mark Newman, a professor at the University of Michigan. Here the outlines of the shapes are preserved but they are distorted as if they were on a sheet of rubber.
+
+With these cartograms, while it might still be a little difficult to figure out who won in a tight race, at least the amount of blue color on the screen is proportional the number of votes won by the Democrats.
+
+They are called VISUAL-izations. If the thing you are trying to show is not VISIBLE to users, there is something amiss. Try to identify what your key takeaway should be and make sure that that is the main point of the visualization. Words are definitely a vital aspect of visualizations, but if the are carrying too much weight, that is a sign that maybe the visualization is not as effective as it could be.
+
+Don’t be afraid to try new ideas, even if they’ve been done the same way for hundreds fo years. Just make sure there is a specific problem you are trying to solve and you’re not just trying to do something for sake of novelty.
+
+Okay, so we figured out an OK solution to the first problem, but remember, I said there were three problems with that 2008 interactive map.
+
+The next one was harder to fix.
+
+The second problem is with the interaction.
+
+With these electoral calculators, our first idea was to allowing people to figuratively “paint” the map with their mouse. It felt like the most intuitive way of allowing people to choose different outcomes.
+
+But as I said early, the more I used it, the more the flaws with this approach became apparent.
+
+It is very intuitive, but the main problem is that as you use the map it actually LOSES information. Each time you fill in a battleground state with your color, it loses the original color that showed you it was an important state. Also, if you changed a Republican leaning state to blue, it was hard to keep track of which states were decisions that you had made and which were the original colors (which were based on recent polling)
+
+It was frustrating because the map became less useful the more time you spent with it.
+
+The problem was we we're using color to do TWO things: 1. It showed the original projections, based on polling and 2. it was used to show the user’s choices.
+
+And secondly, it just wasn't fun to do. The whole thing felt like work.
+
+At the end of 2008 I had a new idea for the interaction. Instead of painting, I thought of a new metaphor, one of putting balls into different bins.
+
+Mostly I just thought it would be fun, and nothing more, and sort of shelved the idea. But then in 2012, when I begin redesigning the calculator I realized that this could solve both of these two problem I’d been having.
+
+If we used position to show your choices, we could retain color to show the original ratings. Also, since they were balls, we could size them according to the number of electoral votes, solving our first problem too.
+
+http://elections.nytimes.com/2012/ratings/electoral-map
+
+Here is the calculator we built for 2012.
+
+We start with the cartogram map, go give you the geography, then move into the balls.
+You can make your choices by dragging the balls into different sides.
+
+Incidentally, this one is a lot more fun than the previous one too.
+
+
+The calculator starts with position and color the same.
+
+As you make your choices by moving the balls, the original ratings are kept.
+You can see your choices and easily undo them, making exploration a lot less destructive.
+
+Also, now, the different scenarios actually LOOKED different.
+
+Here’s the 2008 presidential results. You can clearly see Obama’s large electoral lead over McCain.
+
+Here’s the 2004 presidential results.
+You can clearly see that Bush captured many more states than did McCain.
+
+The calculator was so fun, even Glenn Beck liked it and used it on his show despite his general disdain for our newspaper
+
+
+As successful as this new calculator was, after playing with it for a few months I started to become frustrated with it again.
+
+This brings us to our third problem, and it was the hardest to fix. The problem was this: even thought the newest idea was more fun and easier than previous iterations it still felt like too much work. I still felt a little lost using it. I was feeling lost, exploring a world of possibilities, mining it for information or interesting scenarios. I kind of just wanted the thing to tell me the answers without doing the work!
+
+It felt like I was hiking through a forest of trees trying to find something… when all I really wanted was a map of the area.
+
+With a map I could explore with my eyes rather than having to walk each trail myself.
+
+With all these new interaction possibilities available to us today, it’s often easy to dismiss the concepts of the past. But often there are valuable lessons there. With this, it was sort of a back to print philosophy.
+
+Without interaction available, how would you show all the scenarios? As fun as the interaction was, if you could show the core information without it, isn’t that preferable?
+
+So I started experimenting with laying all the options out.
+What follows is an edited look at each save point for this project from our version control system. It’s a chronological snapshot of the project in progress.
+
+Show here is the first working prototype.
+It basically just does the simple math for you.
+
+And here’s the first viz showing all the relevant decisions you can make with the calculator. Each branch is a decision (whether a state goes to Democrats or Republicans). With each state it doubles the number of outcomes available. Even for only 20 states that is over a million possibilities, so we restricted it to the 9 battleground states. This left only 512 possibilities.
+
+This is slightly more useful. I’ve greyed out the paths for with a victor was already decided.
+
+and here I removed those grey paths altogether. The buttons up top allow you to set a specific winner for that state, thus pruning the tree even further.
+
+Here I rotated 90 degrees for shallow monitors. It allowed me to make it a little bigger, and it was more important that someone sees the entire horizontal slice rather than the other way around. I’ve also added color to show the winner of each decision branch.
+
+Here I was experimenting with fewer states, which made the visualization easier to see, but ultimately was dropping one important state.
+
+Here we experimented with drawing thicker lines for the more probable outcomes according to Nate Silver’s projections. Because, while these states were battlegrounds, some were closer than others.
+
+Here we added little state icons to try to emphasize that each branch represented a decision in a specific state. They ended up getting pretty small pretty fast though.
+
+This one was interesting looking, but a failed attempt to simplify the display. It’s ultimately inaccurate.
+
+Here we were trying to reinforce the concept of which states we were talking about. by showing the map with the grey states, you could then follow down and see what would happen if each were colored differently.
+
+Here we were trying to reinforce the concept of which states we were talking about. by showing the map with the grey states, you could then follow down and see what would happen if each were colored differently.
+
+We began exploring different styles of lines
+
+Ultimately we settled on this sort of natural, snake like winding paths.
+Also, we were trying to show when a winner was decided along a path. Almost like areas of a map. The blue areas show Obama territory and the red show Romney territory.
+
+In the end we decided to leave out showing Nate Silver’s projections as the thickness of the lines. Projecting a winner was worthwhile, projecting the likelihood of any specific scenario was implying more confidence than the statistical model justified.
+
+And here was the final graphic
+
+To give people a little bit more background and to guide them through some of the interesting and likely scenarios, we added some annotations at the bottom that included buttons to set the graphic to that state so you could see it live.
+
+On election night we added live results so you could follow along as the results came in.
